@@ -10,16 +10,16 @@ import random
 class theGui:
 
 	def __init__(self, root):
-		root.resizable(False, False)
+		root.resizable(True, True)
 		root.title('Colora 1.0')
-		root.iconbitmap('icon.ico')
+		root.iconbitmap('E:\Colora\icon.ico')
 
 		wrapper = LabelFrame(root, text="Settings", width=500)
 		wrapper.pack(fill="y", side="left", padx=20, pady=20)
 		self.wrapper = wrapper
 
-		wrapper2 = LabelFrame(root, text="Image")
-		wrapper2.pack(fill="both", expand="true", padx=20, pady=20)
+		wrapper2 = LabelFrame(root, text="Image", width=500)
+		wrapper2.pack(fill="y", expand="true", padx=20, pady=20)
 		self.wrapper2 = wrapper2
 
 		self.hue, self.sat, self.val = 127, 127, 127
@@ -57,7 +57,8 @@ class theGui:
 		self.s.set(0)
 		self.v.set(0)
 		self.en_over.set(0)
-		self.thresh.set(0)
+		self.thresh1.set(0)
+		self.thresh2.set(0)
 		self.thick.set(0)
 		self.show()
 		
@@ -100,9 +101,6 @@ class theGui:
 		
 		self.panelA = Label(self.wrapper2)
 		self.panelA.pack(side="left", padx=20, pady=20)
-
-		self.select_image()
-		self.show()
 
 	def select_image(self):
 		path = filedialog.askopenfilename()
